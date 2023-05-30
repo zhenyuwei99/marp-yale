@@ -1,0 +1,189 @@
+/* @theme yale */
+
+/** note: this is a base theme **/
+
+@import 'gaia';
+@import url('https://fonts.googleapis.com/css2?family=Gelasio&family=Lato&family=Noto+Sans:wght@200;400&family=Open+Sans&display=swap');
+
+:root {
+    --body-font-size: 0.85em;
+    --body-line-height: 1.5em;
+    --color-code-background: #edeff0;
+    --color-background: #fff;
+    --color-foreground: #001931;
+    --color-highlight: #00356b;
+    --logo: url("https://raw.githubusercontent.com/zhenyuwei99/marp-yale/main/asset/logo.svg");
+    /* --font-family: 'Gelasio', '楷体', serif; */
+    --font-family: 'Lato', '楷体', sans-serif;
+}
+
+section {
+    font-family: var(--font-family);
+    padding-top: 90px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+section::after {
+    font-weight: 700;
+    color: var(--color-foreground);
+    content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total);
+}
+
+ul ul {
+    font-size: 0.9em;
+}
+
+section.chapter {
+    color: var(--color-highlight);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+    background-image: none !important;
+    justify-content: center;
+}
+
+section.lead {
+    background-image: none;
+}
+
+section.lead h1 {
+    color: var(--color-foreground);
+    text-align: left;
+}
+
+section.lead h1 strong {
+    -webkit-text-stroke: 1px var(--color-foreground);
+}
+
+section.lead h2 {
+    color: var(--color-foreground);
+    font-size: 1.2em;
+    text-align: left;
+}
+
+section.lead h3 {
+    color: var(--color-foreground);
+    font-size: 1.0em;
+    text-align: right;
+}
+
+section.split {
+    overflow: visible;
+    display: grid;
+    grid-template-columns: 600px 600px;
+    grid-template-rows: 50px auto;
+    grid-template-areas: "leftpanel rightpanel";
+}
+
+/* debug */
+section.split h3,
+section.split .ldiv,
+section.split .rdiv {
+    border: 0pt dashed dimgray;
+}
+
+section.split h3 {
+    grid-area: slideheading;
+    font-size: 50px;
+}
+
+section.split .ldiv {
+    grid-area: leftpanel;
+}
+
+section.split .rdiv {
+    grid-area: rightpanel;
+}
+
+section p {
+    font-size: var(--body-font-size);
+    line-height: var(--body-line-height);
+}
+
+section li {
+    font-size: var(--body-font-size);
+    line-height: var(--body-line-height);
+}
+
+header {
+    background-image: var(--logo);
+    background-size: 10%;
+    background-repeat: no-repeat;
+    background-position: 97% 55%;
+    background-color: var(--color-highlight);
+    color: #fff;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+blockquote {
+    margin-right: 5%;
+    border-top: 0.1em dashed #555;
+    font-size: 70%;
+    position: absolute;
+    bottom: 20px;
+    font-family: var(--font-family);
+    padding: 0 1.5em;
+}
+
+blockquote::before {
+    content: "";
+}
+
+blockquote::after {
+    content: "";
+}
+
+blockquote p {
+    text-align: left !important;
+    margin: 0;
+    padding: 0;
+}
+
+img[alt~="center"] {
+    display: block;
+    margin: 0 auto;
+}
+
+pre {
+    padding: 0.2em 0 !important;
+    margin: 0.2em 2em !important;
+    background-color: var(--color-code-background);
+    border: 1px solid #8395a7;
+    border-radius: 10px;
+}
+
+code {
+    border-radius: 15px !important;
+    background-color: var(--color-code-background);
+    color: var(--color-foreground);
+    padding: 0 0.5em !important;
+    font-family: 'Roboto Mono', monospace;
+}
+
+section.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+table {
+    empty-cells: show;
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 85%;
+    font-size: var(--body-font-size);
+}
+
+td {
+    height: 30px;
+}
+
+
+pre::part(auto-scaling) {
+    max-height: calc(580px - 2em);
+}
